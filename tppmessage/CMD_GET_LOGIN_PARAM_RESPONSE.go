@@ -1,6 +1,6 @@
 package tppmessage
 
-import "fuse/clusterbuildcost"
+import "github.com/unknown321/fuse/clusterbuildcost"
 
 type CmdGetLoginParamResponse struct {
 	ClusterBuildCostsPerCluster []ClusterBuildCostsPerCluster `json:"cluster_build_costs_per_cluster"`

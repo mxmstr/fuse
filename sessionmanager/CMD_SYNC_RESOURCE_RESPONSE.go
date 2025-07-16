@@ -4,9 +4,9 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"fuse/message"
-	"fuse/playerresource"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/message"
+	"github.com/unknown321/fuse/playerresource"
+	"github.com/unknown321/fuse/tppmessage"
 	"log/slog"
 )
 

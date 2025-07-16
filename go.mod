@@ -1,4 +1,4 @@
-module fuse
+module github.com/unknown321/fuse
 
 go 1.24.4
 

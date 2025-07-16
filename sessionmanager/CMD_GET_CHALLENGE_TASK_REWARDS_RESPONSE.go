@@ -2,7 +2,7 @@ package sessionmanager
 
 import (
 	"context"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/tppmessage"
 	"log/slog"
 )
 

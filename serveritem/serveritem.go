@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"fuse/serverproductparam"
+	"github.com/unknown321/fuse/serverproductparam"
 	"log/slog"
 )
 

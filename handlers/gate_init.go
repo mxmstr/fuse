@@ -3,8 +3,8 @@ package handlers
 import (
 	"context"
 	"fmt"
-	"fuse/seed"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/seed"
+	"github.com/unknown321/fuse/tppmessage"
 	"log/slog"
 	"net/url"
 	"os"

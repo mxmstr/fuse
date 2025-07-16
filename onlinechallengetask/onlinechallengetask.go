@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	onlinechallengetaskplayer "fuse/onlinechallengetask/player"
+	onlinechallengetaskplayer "github.com/unknown321/fuse/onlinechallengetask/player"
 	"log/slog"
 )
 

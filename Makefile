@@ -8,7 +8,7 @@ ifeq ($(GOOS),windows)
 endif
 
 # alpine image doesn't have git = no vcs info
-IMAGE=golang:1.24.4
+IMAGE=golang:1.24.5
 DOCKER=docker run -t --rm \
 		-u $$(id -u):$$(id -g) \
 		-v $$(pwd):$$(pwd) \

@@ -4,8 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"fuse/playertask"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/playertask"
+	"github.com/unknown321/fuse/tppmessage"
 	"strings"
 )
 

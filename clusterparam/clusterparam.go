@@ -4,8 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"fuse/clustersecurityparam"
-	"fuse/localbaseparam"
+	"github.com/unknown321/fuse/clustersecurityparam"
+	"github.com/unknown321/fuse/localbaseparam"
 	"log/slog"
 )
 

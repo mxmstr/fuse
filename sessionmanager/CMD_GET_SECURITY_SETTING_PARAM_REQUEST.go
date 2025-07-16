@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"fuse/message"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/message"
+	"github.com/unknown321/fuse/tppmessage"
 )
 
 func HandleCmdGetSecuritySettingParamRequest(ctx context.Context, message *message.Message, manager *SessionManager) error {

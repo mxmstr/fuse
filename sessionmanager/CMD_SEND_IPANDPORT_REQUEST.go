@@ -5,8 +5,8 @@ import (
 	"encoding/binary"
 	"encoding/json"
 	"fmt"
-	"fuse/message"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/message"
+	"github.com/unknown321/fuse/tppmessage"
 	"log/slog"
 	"net"
 )

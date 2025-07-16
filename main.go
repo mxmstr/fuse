@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fuse/cli"
+	"github.com/unknown321/fuse/cli"
 )
 
 func main() {

@@ -2,8 +2,8 @@ package sessionmanager
 
 import (
 	"context"
-	"fuse/message"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/message"
+	"github.com/unknown321/fuse/tppmessage"
 )
 
 func GetCmdGetSecuritySettingParamResponse(ctx context.Context, msg *message.Message, manager *SessionManager) tppmessage.CmdGetSecuritySettingParamResponse {

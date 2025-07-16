@@ -3,9 +3,9 @@ package sessionmanager
 import (
 	"context"
 	"fmt"
-	"fuse/message"
-	"fuse/platform"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/message"
+	"github.com/unknown321/fuse/platform"
+	"github.com/unknown321/fuse/tppmessage"
 	"log/slog"
 )
 

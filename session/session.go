@@ -7,8 +7,8 @@ import (
 	"encoding/base64"
 	"encoding/hex"
 	"fmt"
-	"fuse/coder"
-	"fuse/platform"
+	"github.com/unknown321/fuse/coder"
+	"github.com/unknown321/fuse/platform"
 	"log/slog"
 	"time"
 )

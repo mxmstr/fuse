@@ -3,7 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fuse/clusterbuildcost"
+	"github.com/unknown321/fuse/clusterbuildcost"
 	"os"
 	"text/template"
 )

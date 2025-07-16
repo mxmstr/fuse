@@ -8,9 +8,9 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"fuse/message"
-	"fuse/sectionstat"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/message"
+	"github.com/unknown321/fuse/sectionstat"
+	"github.com/unknown321/fuse/tppmessage"
 	"io"
 	"log/slog"
 )

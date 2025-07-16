@@ -2,8 +2,8 @@ package clustersecurityparam
 
 import (
 	"fmt"
-	"fuse/guardrank"
-	"fuse/weaponrange"
+	"github.com/unknown321/fuse/guardrank"
+	"github.com/unknown321/fuse/weaponrange"
 	"reflect"
 	"testing"
 )

@@ -2,8 +2,8 @@ package constructparam
 
 import (
 	"fmt"
-	"fuse/areacode"
-	"fuse/fobcolor"
+	"github.com/unknown321/fuse/areacode"
+	"github.com/unknown321/fuse/fobcolor"
 )
 
 // see tpp::net::FobTarget::ReceiveDetailInfo

@@ -3,7 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fuse/serverproductparam"
+	"github.com/unknown321/fuse/serverproductparam"
 	"os"
 	"text/template"
 )

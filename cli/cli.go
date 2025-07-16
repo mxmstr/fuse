@@ -3,8 +3,8 @@ package cli
 import (
 	"flag"
 	"fmt"
-	"fuse/server"
-	"fuse/util"
+	"github.com/unknown321/fuse/server"
+	"github.com/unknown321/fuse/util"
 	"log/slog"
 	"os"
 	"runtime/debug"

@@ -1,7 +1,7 @@
 package challengetask
 
 import (
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/tppmessage"
 )
 
 var ChallengeTaskRewardEntries = []TaskRewardEntry{

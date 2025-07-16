@@ -1,7 +1,7 @@
 package handlers
 
 import (
-	"fuse/sessionmanager"
+	"github.com/unknown321/fuse/sessionmanager"
 )
 
 type MainHandler struct {

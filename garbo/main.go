@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fuse/sessionmanager"
+	"github.com/unknown321/fuse/sessionmanager"
 	"os"
 )
 

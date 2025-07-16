@@ -3,9 +3,9 @@ package sessionmanager
 import (
 	"encoding/json"
 	"fmt"
-	"fuse/message"
-	"fuse/steamid"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/message"
+	"github.com/unknown321/fuse/steamid"
+	"github.com/unknown321/fuse/tppmessage"
 	"log/slog"
 	"strconv"
 )

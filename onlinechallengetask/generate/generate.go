@@ -3,7 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fuse/onlinechallengetask"
+	"github.com/unknown321/fuse/onlinechallengetask"
 	"os"
 	"text/template"
 )

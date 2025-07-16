@@ -2,9 +2,9 @@ package server
 
 import (
 	"context"
-	"fuse/coder"
-	"fuse/handlers"
-	"fuse/sessionmanager"
+	"github.com/unknown321/fuse/coder"
+	"github.com/unknown321/fuse/handlers"
+	"github.com/unknown321/fuse/sessionmanager"
 	"log/slog"
 	"net/http"
 	"os"

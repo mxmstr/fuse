@@ -1,8 +1,8 @@
 package sessionmanager
 
 import (
-	"fuse/message"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/message"
+	"github.com/unknown321/fuse/tppmessage"
 )
 
 func GetCmdAuthSteamticketResponse() tppmessage.CmdAuthSteamticketResponse {

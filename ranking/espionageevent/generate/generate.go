@@ -3,7 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fuse/ranking/espionageevent"
+	"github.com/unknown321/fuse/ranking/espionageevent"
 	"os"
 	"text/template"
 )

@@ -3,7 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fuse/ranking/pfevent"
+	"github.com/unknown321/fuse/ranking/pfevent"
 	"os"
 	"text/template"
 )

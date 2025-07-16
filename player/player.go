@@ -4,8 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"fuse/platform"
-	"fuse/user"
+	"github.com/unknown321/fuse/platform"
+	"github.com/unknown321/fuse/user"
 	"log/slog"
 )
 

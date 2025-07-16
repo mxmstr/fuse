@@ -4,10 +4,10 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"fuse/fobtargettype"
-	"fuse/message"
-	"fuse/player"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/fobtargettype"
+	"github.com/unknown321/fuse/message"
+	"github.com/unknown321/fuse/player"
+	"github.com/unknown321/fuse/tppmessage"
 	"log/slog"
 )
 

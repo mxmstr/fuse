@@ -3,8 +3,8 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fuse/staffrankrate"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/staffrankrate"
+	"github.com/unknown321/fuse/tppmessage"
 	"os"
 	"text/template"
 )

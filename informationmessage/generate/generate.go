@@ -3,7 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fuse/informationmessage"
+	"github.com/unknown321/fuse/informationmessage"
 	"os"
 	"text/template"
 )

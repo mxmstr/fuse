@@ -2,8 +2,8 @@ package message
 
 import (
 	"bytes"
-	"fuse/coder"
-	"fuse/tppmessage"
+	"github.com/unknown321/fuse/coder"
+	"github.com/unknown321/fuse/tppmessage"
 	"strings"
 	"testing"
 )

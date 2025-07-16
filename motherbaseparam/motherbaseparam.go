@@ -4,7 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
-	"fuse/constructparam"
+	"github.com/unknown321/fuse/constructparam"
 	"log/slog"
 )
 

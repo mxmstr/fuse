@@ -3,7 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	fobeventtimebonus "fuse/fobevent/timebonus"
+	fobeventtimebonus "github.com/unknown321/fuse/fobevent/timebonus"
 	"os"
 	"text/template"
 )
