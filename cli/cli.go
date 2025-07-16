@@ -3,7 +3,6 @@ package cli
 import (
 	"flag"
 	"fmt"
-	"fuse/coder"
 	"fuse/server"
 	"fuse/util"
 	"log/slog"
@@ -95,13 +94,6 @@ func Start() {
 			_, _ = fmt.Scanln(&a)
 			os.Exit(0)
 		}
-	}
-
-	c := coder.Coder{}
-	err = c.WithKey(nil)
-	if err != nil {
-		slog.Error(err.Error())
-		os.Exit(1)
 	}
 
 	slog.Info("starting server", "listen address", listenAddress)
