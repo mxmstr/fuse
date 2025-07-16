@@ -11,6 +11,7 @@ import (
 	"strings"
 )
 
+// TODO move to flags?
 var clientConfPath = "fuse.txt"
 
 func Start() {
