@@ -12,7 +12,9 @@ import (
 	"time"
 )
 
-func Start(baseURL string, listenAddr string, platform string, writeLog bool, passThrough bool) {
+const DsnURIDefault = "./fuse.dat"
+
+func Start(baseURL string, listenAddr string, platform string, writeLog bool, passThrough bool, dsnURI string) {
 	now := time.Now().Unix()
 	if writeLog {
 		err := os.MkdirAll("./log/"+strconv.Itoa(int(now)), 0755)
@@ -45,7 +47,9 @@ func Start(baseURL string, listenAddr string, platform string, writeLog bool, pa
 	gh := handlers.GateHandler{}
 	gh.WithManager(&manager)
 	gh.WithCoder(&c)
-	dsnURI := "./fuse.dat"
+	if dsnURI == "" {
+		dsnURI = DsnURIDefault
+	}
 	err = gh.DBConnect(dsnURI)
 	if err != nil {
 		slog.Error("cannot connect to database", "uri", dsnURI, "error", err.Error())

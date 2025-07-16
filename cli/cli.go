@@ -99,5 +99,5 @@ func Start() {
 
 	slog.Info("starting server", "listen address", listenAddress)
 
-	server.Start(baseURL, listenAddress, platform, writeLog, passThrough)
+	server.Start(baseURL, listenAddress, platform, writeLog, passThrough, server.DsnURIDefault)
 }
