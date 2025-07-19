@@ -53,7 +53,21 @@ func GetCmdSyncResourceResponse(ctx context.Context, msg *message.Message, req *
 		}
 
 		if len(onlineResources) == 0 {
-			cc := playerresource.PlayerResource{PlayerID: msg.PlayerID, IsOnline: true}
+			cc := playerresource.PlayerResource{
+				PlayerID:    msg.PlayerID,
+				IsOnline:    true,
+				Raw:         manager.ManagerOpts.SignupBonus.Resources.Raw,
+				Processed:   manager.ManagerOpts.SignupBonus.Resources.Processed,
+				Plants:      manager.ManagerOpts.SignupBonus.Resources.Plants,
+				Vehicles:    manager.ManagerOpts.SignupBonus.Resources.Vehicles,
+				WalkerGears: manager.ManagerOpts.SignupBonus.Resources.WalkerGears,
+				Nuclear:     manager.ManagerOpts.SignupBonus.Resources.Nuclear,
+				Parasites:   manager.ManagerOpts.SignupBonus.Resources.Parasites,
+				Mystery01:   0,
+				Placed:      manager.ManagerOpts.SignupBonus.Resources.Placed,
+				Mystery02:   [7]int{},
+				Unused:      [13]int{},
+			}
 			if err = manager.PlayerResourceRepo.AddOrUpdate(ctx, &cc); err != nil {
 				slog.Error("add new online resources", "error", err.Error(), "msgid", t.Msgid, "playerID", msg.PlayerID)
 				t.Result = tppmessage.RESULT_ERR

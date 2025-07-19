@@ -60,9 +60,19 @@ import (
 
 var override = true
 
+type SignupBonus struct {
+	GMP       int
+	Resources playerresource.PlayerResource
+}
+
+type ManagerOpts struct {
+	SignupBonus SignupBonus
+}
+
 type SessionManager struct {
-	sessions map[string]*session.Session
-	WriteLog bool
+	sessions    map[string]*session.Session
+	WriteLog    bool
+	ManagerOpts ManagerOpts
 
 	UserRepo                      *user.Repo
 	SessionRepo                   *session.Repo

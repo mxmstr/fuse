@@ -102,7 +102,7 @@ func GetAuthResponse(ctx context.Context, steamID string, manager *SessionManage
 		}
 		slog.Info("created player", "id", pid, "platform", platform.Steam)
 
-		if err = manager.PlayerStatusRepo.AddOrUpdate(ctx, &playerstatus.PlayerStatus{PlayerID: pid}); err != nil {
+		if err = manager.PlayerStatusRepo.AddOrUpdate(ctx, &playerstatus.PlayerStatus{PlayerID: pid, ServerGmp: manager.ManagerOpts.SignupBonus.GMP}); err != nil {
 			slog.Error("add player status", "error", err.Error(), "playerID", pid)
 			t.Result = tppmessage.RESULT_ERR
 			return t, err

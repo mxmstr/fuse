@@ -14,7 +14,7 @@ import (
 
 const DsnURIDefault = "./fuse.dat"
 
-func Start(baseURL string, listenAddr string, platform string, writeLog bool, passThrough bool, dsnURI string) {
+func Start(baseURL string, listenAddr string, platform string, writeLog bool, passThrough bool, dsnURI string, bonus sessionmanager.SignupBonus) {
 	now := time.Now().Unix()
 	if writeLog {
 		err := os.MkdirAll("./log/"+strconv.Itoa(int(now)), 0755)
@@ -28,6 +28,9 @@ func Start(baseURL string, listenAddr string, platform string, writeLog bool, pa
 	manager := sessionmanager.SessionManager{
 		WriteLog: writeLog,
 		LogDir:   strconv.FormatInt(now, 10),
+		ManagerOpts: sessionmanager.ManagerOpts{
+			SignupBonus: bonus,
+		},
 	}
 
 	mux := http.NewServeMux()
