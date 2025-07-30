@@ -5,4 +5,4 @@ Look for `mystery` in source code - these are the fields that need to be underst
 
 Check out `TODO` comments - there are a lot of things to do.
 
-You can also buy me a hamburger here - https://boosty.to/unknown321/donate.
+You can support the development here - https://boosty.to/unknown321/donate.

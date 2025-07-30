@@ -40,6 +40,8 @@ Usage
 Usage of ./fuse-linux-amd64:
   -baseURL string
         base url (default "http://127.0.0.1:6667/")
+  -clientURL string
+        user URL (will be patched into the exe) (default "http://127.0.0.1:6667/")
   -listenAddr string
         listen addr (default "127.0.0.1:6667")
   -passThrough
@@ -105,13 +107,18 @@ Run fuse executable. It will:
 
 ### 4. Provide custom server url (optional)
 
-Create file named `fuse.txt` with custom server url, then launch the executable. It will:
+Run fuse executable with "-clientURL" flag and url of your choice. It will:
+
   - automatically create a backup of `mgsvtpp.exe`
-  - patch `mgsvtpp.exe` with custom server address (contents of `fuse.txt`)
+  - patch `mgsvtpp.exe` with custom server address
 
 ## Advanced usage
 
 [Advanced usage](./ADVANCED.md)
+
+## Building
+
+[Building from source](./doc/BUILD.md)
 
 ## Contributing
 

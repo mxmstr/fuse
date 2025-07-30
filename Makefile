@@ -36,3 +36,5 @@ gen:
 release: test gen
 	$(MAKE) GOOS=linux build
 	$(MAKE) GOOS=windows build
+
+.DEFAULT_GOAL := release

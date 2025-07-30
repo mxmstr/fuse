@@ -13,9 +13,6 @@ import (
 	"strings"
 )
 
-// TODO move to flags?
-var clientConfPath = "fuse.txt"
-
 func Start() {
 	var err error
 
@@ -25,12 +22,14 @@ func Start() {
 	var platform string
 	var writeLog bool
 	var passThrough bool
+	var clientURL string
 	flag.StringVar(&baseURL, "baseURL", "http://127.0.0.1:6667/", "base url")
 	flag.StringVar(&listenAddress, "listenAddr", "127.0.0.1:6667", "listen addr")
 	flag.StringVar(&platform, "platform", "tppstm", "server platform")
 	flag.BoolVar(&writeLog, "writeLog", false, "save requests and responses to files")
 	flag.BoolVar(&passThrough, "passThrough", false, "work as a proxy between client and original master server")
 	flag.BoolVar(&standalone, "standalone", false, "standalone mode (do not attempt to patch and backup executable)")
+	flag.StringVar(&clientURL, "clientURL", "http://127.0.0.1:6667/", "user URL (will be patched into the exe)")
 	flag.Parse()
 
 	opts := &slog.HandlerOptions{AddSource: true, Level: slog.LevelInfo}
@@ -68,16 +67,7 @@ func Start() {
 		}
 
 		customURL := false
-		clientURL := "http://127.0.0.1:6667"
-		_, err = os.Stat(clientConfPath)
-		if err == nil {
-			d, err := os.ReadFile(clientConfPath)
-			if err != nil {
-				slog.Error("read config", "error", err.Error(), "config path", clientConfPath)
-				os.Exit(1)
-			}
-
-			clientURL = string(d)
+		if clientURL != "http://127.0.0.1:6667/" {
 			customURL = true
 		}
 
