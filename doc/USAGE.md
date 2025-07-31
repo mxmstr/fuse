@@ -118,7 +118,7 @@ Run fuse executable with "-clientURL" flag and url of your choice. It will:
 
 ## Building
 
-[Building from source](./doc/BUILD.md)
+[Building from source](./BUILD.md)
 
 ## Contributing
 
