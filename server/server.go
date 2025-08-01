@@ -68,7 +68,7 @@ func Start(baseURL string, listenAddr string, platform string, writeLog bool, pa
 	}
 
 	if err = gh.Seed(ctx); err != nil {
-		slog.Info("seed", "warn", err.Error(), "(it's ok)")
+		slog.Info("seed", "warn", err.Error(), "but", "it's ok")
 	}
 
 	gh.PassThrough = passThrough
