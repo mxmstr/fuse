@@ -643,17 +643,17 @@ func (gh *GateHandler) initUrlList(ctx context.Context, baseURL string, platform
 		{
 			Type:    "GATE",
 			Url:     b.JoinPath(platform, "gate").String(), // tppstm/gate
-			Version: 17,
+			Version: 0,
 		},
 		{
 			Type:    "WEB",
 			Url:     b.JoinPath(platform, "main").String(), // tppstm/main
-			Version: 17,
+			Version: 0,
 		},
 		{
 			Type:    "EULA",
 			Url:     b.JoinPath(platformWeb, "eula", "eula.var").String(), // "/tppstmweb/eula/eula.var",
-			Version: 6,
+			Version: 0,
 		},
 		{
 			Type:    "HEATMAP",
@@ -668,67 +668,67 @@ func (gh *GateHandler) initUrlList(ctx context.Context, baseURL string, platform
 		{
 			Type:    "EULA_COIN",
 			Url:     b.JoinPath(platformWeb, "coin", "coin.var").String(), // tppstmweb/coin/coin.var
-			Version: 1,
+			Version: 0,
 		},
 		{
 			Type:    "POLICY_GDPR",
 			Url:     b.JoinPath(platformWeb, "gdpr", "privacy.var").String(), // tppstmweb/gdpr/privacy.var"
-			Version: 1,
+			Version: 0,
 		},
 		{
 			Type:    "POLICY_JP",
 			Url:     b.JoinPath(platformWeb, "privacy_jp", "privacy.var").String(), // tppstmweb/privacy_jp/privacy.var",
-			Version: 2,
+			Version: 0,
 		},
 		{
 			Type:    "POLICY_ELSE",
 			Url:     b.JoinPath(platformWeb, "privacy", "privacy.var").String(), // tppstmweb/privacy/privacy.var",
-			Version: 1,
+			Version: 0,
 		},
 		{
 			Type:    "LEGAL",
 			Url:     "http://legal.konami.com/games/mgsvtpp/",
-			Version: 1,
+			Version: 0,
 		},
 		{
 			Type:    "PERMISSION",
 			Url:     "http://www.konami.com/",
-			Version: 1,
+			Version: 0,
 		},
 		{
 			Type:    "POLICY_CCPA",
 			Url:     b.JoinPath(platformWeb, "privacy_ccpa", "privacy.var").String(), // tppstmweb/privacy_ccpa/privacy.var",
-			Version: 1,
+			Version: 0,
 		},
 		{
 			Type:    "EULA_TEXT",
 			Url:     "http://legal.konami.com/games/mgsvtpp/terms/",
-			Version: 1,
+			Version: 0,
 		},
 		{
 			Type:    "EULA_COIN_TEXT",
 			Url:     "http://legal.konami.com/games/mgsvtpp/terms/currency/",
-			Version: 1,
+			Version: 0,
 		},
 		{
 			Type:    "POLICY_GDPR_TEXT",
 			Url:     "http://legal.konami.com/games/mgsvtpp/",
-			Version: 1,
+			Version: 0,
 		},
 		{
 			Type:    "POLICY_JP_TEXT",
 			Url:     "http://legal.konami.com/games/privacy/view/",
-			Version: 2,
+			Version: 0,
 		},
 		{
 			Type:    "POLICY_ELSE_TEXT",
 			Url:     "http://legal.konami.com/games/privacy/view/",
-			Version: 1,
+			Version: 0,
 		},
 		{
 			Type:    "POLICY_CCPA_TEXT",
 			Url:     "http://legal.konami.com/games/mgsvtpp/ppa4ca/",
-			Version: 1,
+			Version: 0,
 		},
 	}
 
