@@ -474,6 +474,54 @@ func (m *Message) GetDataType() error {
 		m.MsgID = tppmessage.CMD_EXCHANGE_FOB_EVENT_POINT
 	case "CMD_GET_SNEAK_TARGET_LIST":
 		m.MsgID = tppmessage.CMD_GET_SNEAK_TARGET_LIST
+	case "CMD_DELETE_MGO_CHARACTER":
+		m.MsgID = tppmessage.CMD_DELETE_MGO_CHARACTER
+	case "CMD_GET_MGO_BOOST":
+		m.MsgID = tppmessage.CMD_GET_MGO_BOOST
+	case "CMD_GET_MGO_CHARACTER2":
+		m.MsgID = tppmessage.CMD_GET_MGO_CHARACTER2
+	case "CMD_GET_MGO_GP":
+		m.MsgID = tppmessage.CMD_GET_MGO_GP
+	case "CMD_GET_MGO_LOADOUT":
+		m.MsgID = tppmessage.CMD_GET_MGO_LOADOUT
+	case "CMD_GET_MGO_MATCH_STAT":
+		m.MsgID = tppmessage.CMD_GET_MGO_MATCH_STAT
+	case "CMD_GET_MGO_MISSION_INFO":
+		m.MsgID = tppmessage.CMD_GET_MGO_MISSION_INFO
+	case "CMD_GET_MGO_PARAMETERS":
+		m.MsgID = tppmessage.CMD_GET_MGO_PARAMETERS
+	case "CMD_GET_MGO_PROGRESSION":
+		m.MsgID = tppmessage.CMD_GET_MGO_PROGRESSION
+	case "CMD_GET_MGO_PURCHASABLE_GEAR":
+		m.MsgID = tppmessage.CMD_GET_MGO_PURCHASABLE_GEAR
+	case "CMD_GET_MGO_PURCHASABLE_GEAR_COLOR":
+		m.MsgID = tppmessage.CMD_GET_MGO_PURCHASABLE_GEAR_COLOR
+	case "CMD_GET_MGO_PURCHASABLE_ITEM_LIST":
+		m.MsgID = tppmessage.CMD_GET_MGO_PURCHASABLE_ITEM_LIST
+	case "CMD_GET_MGO_PURCHASABLE_WEAPON_COLOR":
+		m.MsgID = tppmessage.CMD_GET_MGO_PURCHASABLE_WEAPON_COLOR
+	case "CMD_GET_MGO_PURCHASED_ITEM":
+		m.MsgID = tppmessage.CMD_GET_MGO_PURCHASED_ITEM
+	case "CMD_GET_MGO_STAT":
+		m.MsgID = tppmessage.CMD_GET_MGO_STAT
+	case "CMD_GET_MGO_TITLE_LIST":
+		m.MsgID = tppmessage.CMD_GET_MGO_TITLE_LIST
+	case "CMD_GET_MGO_TITLE_USR":
+		m.MsgID = tppmessage.CMD_GET_MGO_TITLE_USR
+	case "CMD_GET_MGO_USER_DATA":
+		m.MsgID = tppmessage.CMD_GET_MGO_USER_DATA
+	case "CMD_MGO_DLC_UPDATE":
+		m.MsgID = tppmessage.CMD_MGO_DLC_UPDATE
+	case "CMD_MGO_MISSION_RESULT":
+		m.MsgID = tppmessage.CMD_MGO_MISSION_RESULT
+	case "CMD_SET_MGO_CHARACTER_AND_LOADOUT2":
+		m.MsgID = tppmessage.CMD_SET_MGO_CHARACTER_AND_LOADOUT2
+	case "CMD_SET_MGO_CHARACTER2":
+		m.MsgID = tppmessage.CMD_SET_MGO_CHARACTER2
+	case "CMD_SET_MGO_MATCH_STAT":
+		m.MsgID = tppmessage.CMD_SET_MGO_MATCH_STAT
+	case "CMD_SET_MGO_STAT":
+		m.MsgID = tppmessage.CMD_SET_MGO_STAT
 	default:
 		return fmt.Errorf("unknown data type")
 	}
