@@ -8,15 +8,16 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"fmt"
-	"github.com/unknown321/fuse/coder"
-	"github.com/unknown321/fuse/platform"
-	"github.com/unknown321/fuse/tppmessage"
-	"github.com/unknown321/fuse/util"
 	"io"
 	"log/slog"
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/unknown321/fuse/coder"
+	"github.com/unknown321/fuse/platform"
+	"github.com/unknown321/fuse/tppmessage"
+	"github.com/unknown321/fuse/util"
 )
 
 type Message struct {
@@ -223,6 +224,8 @@ func (m *Message) GetDataType() error {
 		m.MsgID = tppmessage.CMD_SEND_HEARTBEAT
 	case "CMD_NOTICE_SNEAK_MOTHER_BASE":
 		m.MsgID = tppmessage.CMD_NOTICE_SNEAK_MOTHER_BASE
+	case "CMD_GET_INFORMATIONLIST":
+		m.MsgID = tppmessage.CMD_GET_INFORMATIONLIST2
 	case "CMD_GET_INFORMATIONLIST2":
 		m.MsgID = tppmessage.CMD_GET_INFORMATIONLIST2
 	case "CMD_GET_SVRLIST":
