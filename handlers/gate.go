@@ -25,6 +25,8 @@ import (
 	"github.com/unknown321/fuse/intruder"
 	"github.com/unknown321/fuse/localbase"
 	"github.com/unknown321/fuse/message"
+	"github.com/unknown321/fuse/mgo/character"
+	"github.com/unknown321/fuse/mgo/loadout"
 	"github.com/unknown321/fuse/motherbaseparam"
 	"github.com/unknown321/fuse/onlinechallengetask"
 	onlinechallengetaskplayer "github.com/unknown321/fuse/onlinechallengetask/player"
@@ -108,6 +110,8 @@ type GateHandler struct {
 	FOBPlacedRepo                 fobplaced.Repo
 	FOBWeaponPlacementRepo        fobweaponplacement.Repo
 	IntruderRepo                  intruder.Repo
+	MGOCharacterRepo              character.Repo
+	MGOLoadoutRepo                loadout.Repo
 }
 
 func (gh *GateHandler) WithManager(m *sessionmanager.SessionManager) {
@@ -154,6 +158,8 @@ func (gh *GateHandler) WithManager(m *sessionmanager.SessionManager) {
 	m.FOBPlacedRepo = &gh.FOBPlacedRepo
 	m.FOBWeaponPlacementRepo = &gh.FOBWeaponPlacementRepo
 	m.IntruderRepo = &gh.IntruderRepo
+	m.MGOCharacterRepo = &gh.MGOCharacterRepo
+	m.MGOLoadoutRepo = &gh.MGOLoadoutRepo
 }
 
 func (gh *GateHandler) WithCoder(c *coder.Coder) {

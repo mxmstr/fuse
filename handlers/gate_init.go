@@ -180,6 +180,32 @@ func (gh *GateHandler) InitDB(ctx context.Context, baseURL string, platform stri
 		return fmt.Errorf("init intruder: %w", err)
 	}
 
+	if err = gh.initMGOCharacterRepo(ctx); err != nil {
+		return fmt.Errorf("init mgo character: %w", err)
+	}
+
+	if err = gh.initMGOLoadoutRepo(ctx); err != nil {
+		return fmt.Errorf("init mgo loadout: %w", err)
+	}
+
+	return nil
+}
+
+func (gh *GateHandler) initMGOCharacterRepo(ctx context.Context) error {
+	gh.MGOCharacterRepo.WithDB(gh.DB)
+	if err := gh.MGOCharacterRepo.Init(ctx); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (gh *GateHandler) initMGOLoadoutRepo(ctx context.Context) error {
+	gh.MGOLoadoutRepo.WithDB(gh.DB)
+	if err := gh.MGOLoadoutRepo.Init(ctx); err != nil {
+		return err
+	}
+
 	return nil
 }
 
