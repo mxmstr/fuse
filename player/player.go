@@ -9,6 +9,8 @@ import (
 	"log/slog"
 )
 
+type ID int
+
 type Sneak struct {
 	Grade int
 	Rank  int

@@ -6,10 +6,8 @@ type CmdGetMgoCharacter2Request struct {
 }
 
 type CmdGetMgoCharacter2Response struct {
-	// Character's structure is defined in an external JSON file (default_character.json)
-	// which is not available in the repository. Using interface{} to accommodate any valid JSON.
-	Character   interface{} `json:"character"`
-	CryptoType  string      `json:"crypto_type"`
+	Character   MGOCharacterData `json:"character"`
+	CryptoType  string           `json:"crypto_type"`
 	Flowid      interface{} `json:"flowid"`
 	Msgid       string      `json:"msgid"`
 	Result      string      `json:"result"`

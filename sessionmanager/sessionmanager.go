@@ -27,6 +27,8 @@ import (
 	"github.com/unknown321/fuse/intruder"
 	"github.com/unknown321/fuse/localbase"
 	"github.com/unknown321/fuse/message"
+	"github.com/unknown321/fuse/mgo/character"
+	"github.com/unknown321/fuse/mgo/loadout"
 	"github.com/unknown321/fuse/motherbaseparam"
 	"github.com/unknown321/fuse/onlinechallengetask"
 	onlinechallengetaskplayer "github.com/unknown321/fuse/onlinechallengetask/player"
@@ -116,6 +118,8 @@ type SessionManager struct {
 	FOBPlacedRepo                 *fobplaced.Repo
 	FOBWeaponPlacementRepo        *fobweaponplacement.Repo
 	IntruderRepo                  *intruder.Repo
+	MGOCharacterRepo              *character.Repo
+	MGOLoadoutRepo                *loadout.Repo
 	LogDir                        string
 }
 
