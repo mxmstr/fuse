@@ -5,6 +5,11 @@ type CmdGetMgoTitleListRequest struct {
 	Rqid  int    `json:"rqid"`
 }
 
+type MGOTitle struct {
+	ID   int    `json:"id"`
+	Name string `json:"name"`
+}
+
 type CmdGetMgoTitleListResponse struct {
 	CryptoType string      `json:"crypto_type"`
 	Flowid     interface{} `json:"flowid"`

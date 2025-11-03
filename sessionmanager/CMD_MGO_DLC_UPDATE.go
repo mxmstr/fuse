@@ -1,6 +1,7 @@
 package sessionmanager
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"log/slog"
@@ -9,22 +10,25 @@ import (
 	"github.com/unknown321/fuse/tppmessage"
 )
 
-func HandleCmdMgoDlcUpdateRequest(message *message.Message, override bool) error {
-	if !override {
-		return nil
+func HandleCmdMgoDlcUpdateRequest(ctx context.Context, msg *message.Message, m *SessionManager) error {
+	var req tppmessage.CmdMgoDlcUpdateRequest
+	err := json.Unmarshal(msg.MData, &req)
+	if err != nil {
+		return fmt.Errorf("could not unmarshal mgo dlc update request: %w", err)
 	}
 
-	slog.Info("using overridden version")
-	var err error
-	t := tppmessage.CmdMgoDlcUpdateRequest{}
-	err = json.Unmarshal(message.MData, &t)
-	if err != nil {
-		return fmt.Errorf("cannot unmarshal: %w", err)
+	slog.Info("received dlc update request", slog.Any("request", req))
+
+	resp := tppmessage.CmdMgoDlcUpdateResponse{
+		Msgid:       tppmessage.CMD_MGO_DLC_UPDATE.String(),
+		Result:      "NOERR",
+		NowDlcFlags: 15,
+		OldDlcFlags: 15,
 	}
 
-	message.MData, err = json.Marshal(t)
+	msg.MData, err = json.Marshal(resp)
 	if err != nil {
-		return fmt.Errorf("cannot marshal: %w", err)
+		return fmt.Errorf("could not marshal mgo dlc update response: %w", err)
 	}
 
 	return nil

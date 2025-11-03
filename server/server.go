@@ -2,14 +2,15 @@ package server
 
 import (
 	"context"
-	"github.com/unknown321/fuse/coder"
-	"github.com/unknown321/fuse/handlers"
-	"github.com/unknown321/fuse/sessionmanager"
 	"log/slog"
 	"net/http"
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/unknown321/fuse/coder"
+	"github.com/unknown321/fuse/handlers"
+	"github.com/unknown321/fuse/sessionmanager"
 )
 
 const DsnURIDefault = "./fuse.dat"

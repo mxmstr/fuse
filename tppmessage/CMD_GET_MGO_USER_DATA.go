@@ -15,16 +15,11 @@ type CmdGetMgoUserDataResponse struct {
 	Msgid                 string      `json:"msgid"`
 	RankXp                int         `json:"rank_xp"`
 	Result                string      `json:"result"`
-	Reward                struct {
-		RewardCategory string `json:"reward_category"`
-		RewardIdA      uint32 `json:"reward_id_a"`
-		RewardIdB      int    `json:"reward_id_b"`
-		RewardIdC      int    `json:"reward_id_c"`
-	} `json:"reward"`
-	Rqid                 int         `json:"rqid"`
-	SurvivalTicketRemain int         `json:"survival_ticket_remain"`
-	XpBoostMag           int         `json:"xp_boost_mag"`
-	XpExpire             string      `json:"xp_expire"`
+	Reward                MGOReward   `json:"reward"`
+	Rqid                  int         `json:"rqid"`
+	SurvivalTicketRemain  int         `json:"survival_ticket_remain"`
+	XpBoostMag            int         `json:"xp_boost_mag"`
+	XpExpire              string      `json:"xp_expire"`
 	XpExpireUnixTimestamp int         `json:"xp_expire_unix_timestamp"`
-	Xuid                 interface{} `json:"xuid"`
+	Xuid                  interface{} `json:"xuid"`
 }

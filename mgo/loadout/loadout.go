@@ -4,7 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"encoding/json"
-	"github.com/unknown321/fuse/player"
+	"os"
+
 	"github.com/unknown321/fuse/tppmessage"
 )
 
@@ -17,73 +18,61 @@ func (r *Repo) WithDB(db *sql.DB) {
 }
 
 func (r *Repo) Init(ctx context.Context) error {
+	// Store entire MGOLoadoutData as JSON blob per player
 	_, err := r.db.ExecContext(ctx, `
-		CREATE TABLE IF NOT EXISTS mgo_loadout (
-			player_id INTEGER NOT NULL,
-			character_id INTEGER NOT NULL,
-			loadout_index INTEGER NOT NULL,
-			data BLOB,
-			PRIMARY KEY (player_id, character_id, loadout_index),
+		CREATE TABLE IF NOT EXISTS mgo_loadout_data (
+			player_id INTEGER PRIMARY KEY,
+			data BLOB NOT NULL,
 			FOREIGN KEY (player_id) REFERENCES player(id)
 		)
 	`)
 	return err
 }
 
-func (r *Repo) FindByCharacter(ctx context.Context, playerID player.ID, characterID int) ([]*tppmessage.MGOLoadout, error) {
-	rows, err := r.db.QueryContext(ctx, "SELECT data FROM mgo_loadout WHERE player_id = ? AND character_id = ?", playerID, characterID)
+func LoadDefaultLoadouts() (tppmessage.MGOLoadoutData, error) {
+	var loadouts tppmessage.MGOLoadoutData
+	data, err := os.ReadFile("default_loadout.json")
 	if err != nil {
-		return nil, err
+		return tppmessage.MGOLoadoutData{}, err
 	}
-	defer rows.Close()
-
-	var loadouts []*tppmessage.MGOLoadout
-	for rows.Next() {
-		var data []byte
-		if err := rows.Scan(&data); err != nil {
-			return nil, err
-		}
-
-		var loadout tppmessage.MGOLoadout
-		if err := json.Unmarshal(data, &loadout); err != nil {
-			return nil, err
-		}
-		loadouts = append(loadouts, &loadout)
+	if err := json.Unmarshal(data, &loadouts); err != nil {
+		return tppmessage.MGOLoadoutData{}, err
 	}
-
 	return loadouts, nil
 }
 
-func (r *Repo) Save(ctx context.Context, playerID player.ID, characterID int, loadout *tppmessage.MGOLoadout) error {
-	data, err := json.Marshal(loadout)
-	if err != nil {
-		return err
-	}
-
-	_, err = r.db.ExecContext(ctx, `
-		INSERT OR REPLACE INTO mgo_loadout (player_id, character_id, loadout_index, data)
-		VALUES (?, ?, ?, ?)
-	`, playerID, characterID, loadout.LoadoutIndex, data)
-
-	return err
-}
-
-func (r *Repo) Find(ctx context.Context, playerID player.ID, characterID int, loadoutIndex int) (*tppmessage.MGOLoadout, error) {
-	row := r.db.QueryRowContext(ctx, "SELECT data FROM mgo_loadout WHERE player_id = ? AND character_id = ? AND loadout_index = ?", playerID, characterID, loadoutIndex)
+func (r *Repo) FindAllByPlayer(ctx context.Context, playerID int) (tppmessage.MGOLoadoutData, error) {
+	row := r.db.QueryRowContext(ctx, "SELECT data FROM mgo_loadout_data WHERE player_id = ?", playerID)
 
 	var data []byte
 	err := row.Scan(&data)
 	if err != nil {
 		if err == sql.ErrNoRows {
-			return nil, nil
+			// No loadout data found, load and return defaults
+			return LoadDefaultLoadouts()
 		}
-		return nil, err
+		return tppmessage.MGOLoadoutData{}, err
 	}
 
-	var loadout tppmessage.MGOLoadout
-	if err := json.Unmarshal(data, &loadout); err != nil {
-		return nil, err
+	var loadoutData tppmessage.MGOLoadoutData
+	if err := json.Unmarshal(data, &loadoutData); err != nil {
+		return tppmessage.MGOLoadoutData{}, err
 	}
 
-	return &loadout, nil
+	return loadoutData, nil
+}
+
+// upsert
+func (r *Repo) Upsert(ctx context.Context, playerID int, loadoutData tppmessage.MGOLoadoutData) error {
+	data, err := json.Marshal(loadoutData)
+	if err != nil {
+		return err
+	}
+
+	_, err = r.db.ExecContext(ctx, `
+		INSERT OR REPLACE INTO mgo_loadout_data (player_id, data)
+		VALUES (?, ?)
+	`, playerID, data)
+
+	return err
 }

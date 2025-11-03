@@ -88,6 +88,7 @@ type CharacterLoadouts struct {
 // MGOLoadout represents a single loadout.
 type MGOLoadout struct {
 	LoadoutIndex      int             `json:"-"` // Not in original JSON, for DB use
+	CharacterId       int             `json:"character_id"`
 	Name              string          `json:"name"`
 	GearList          []Gear          `json:"gear_list"`
 	ItemList          []Item          `json:"item_list"`
@@ -122,4 +123,11 @@ type Weapon struct {
 type SupportWeapon struct {
 	ID   uint32 `json:"id"`
 	Slot int    `json:"slot"`
+}
+
+type MGOReward struct {
+	RewardCategory string `json:"reward_category"`
+	RewardIdA      uint32 `json:"reward_id_a"`
+	RewardIdB      uint32 `json:"reward_id_b"`
+	RewardIdC      uint32 `json:"reward_id_c"`
 }

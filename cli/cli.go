@@ -3,14 +3,15 @@ package cli
 import (
 	"flag"
 	"fmt"
-	"github.com/unknown321/fuse/playerresource"
-	"github.com/unknown321/fuse/server"
-	"github.com/unknown321/fuse/sessionmanager"
-	"github.com/unknown321/fuse/util"
 	"log/slog"
 	"os"
 	"runtime/debug"
 	"strings"
+
+	"github.com/unknown321/fuse/playerresource"
+	"github.com/unknown321/fuse/server"
+	"github.com/unknown321/fuse/sessionmanager"
+	"github.com/unknown321/fuse/util"
 )
 
 func Start() {

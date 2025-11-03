@@ -1,28 +1,28 @@
 package sessionmanager
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
-	"log/slog"
 
 	"github.com/unknown321/fuse/message"
 	"github.com/unknown321/fuse/tppmessage"
 )
 
-func HandleCmdSetMgoMatchStatRequest(message *message.Message, override bool) error {
-	if !override {
-		return nil
-	}
-
-	slog.Info("using overridden version")
+func HandleCmdSetMgoMatchStatRequest(ctx context.Context, msg *message.Message, m *SessionManager) error {
 	var err error
 	t := tppmessage.CmdSetMgoMatchStatRequest{}
-	err = json.Unmarshal(message.MData, &t)
+	err = json.Unmarshal(msg.MData, &t)
 	if err != nil {
 		return fmt.Errorf("cannot unmarshal: %w", err)
 	}
 
-	message.MData, err = json.Marshal(t)
+	resp := tppmessage.CmdSetMgoMatchStatResponse{
+		Msgid:  tppmessage.CMD_SET_MGO_MATCH_STAT.String(),
+		Result: "NOERR",
+	}
+
+	msg.MData, err = json.Marshal(resp)
 	if err != nil {
 		return fmt.Errorf("cannot marshal: %w", err)
 	}

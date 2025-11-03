@@ -7,6 +7,10 @@ import (
 	"context"
 	"encoding/base64"
 	"fmt"
+	"io"
+	"log/slog"
+	"time"
+
 	"github.com/unknown321/fuse/abolition"
 	"github.com/unknown321/fuse/challengetask"
 	"github.com/unknown321/fuse/clusterbuildcost"
@@ -55,9 +59,6 @@ import (
 	"github.com/unknown321/fuse/tppmessage"
 	"github.com/unknown321/fuse/user"
 	"github.com/unknown321/fuse/util"
-	"io"
-	"log/slog"
-	"time"
 )
 
 var override = true
@@ -370,6 +371,56 @@ func (m *SessionManager) HandleRequest(ctx context.Context, msg *message.Message
 		err = HandleCmdSyncEmblemRequest(ctx, msg, m)
 	case tppmessage.CMD_GET_WORMHOLE_LIST:
 		err = HandleCmdGetWormholeListRequest(ctx, msg, m)
+	case tppmessage.CMD_DELETE_MGO_CHARACTER:
+		err = HandleCmdDeleteMgoCharacterRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_BOOST:
+		err = HandleCmdGetMgoBoostRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_CHARACTER2:
+		err = HandleCmdGetMgoCharacter2Request(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_GP:
+		err = HandleCmdGetMgoGpRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_LOADOUT:
+		err = HandleCmdGetMgoLoadoutRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_MATCH_STAT:
+		err = HandleCmdGetMgoMatchStatRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_MISSION_INFO:
+		err = HandleCmdGetMgoMissionInfoRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_PARAMETERS:
+		err = HandleCmdGetMgoParametersRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_PROGRESSION:
+		err = HandleCmdGetMgoProgressionRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_PURCHASABLE_GEAR:
+		err = HandleCmdGetMgoPurchasableGearRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_PURCHASABLE_GEAR_COLOR:
+		err = HandleCmdGetMgoPurchasableGearColorRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_PURCHASABLE_ITEM_LIST:
+		err = HandleCmdGetMgoPurchasableItemListRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_PURCHASABLE_WEAPON_COLOR:
+		err = HandleCmdGetMgoPurchasableWeaponColorRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_PURCHASED_ITEM:
+		err = HandleCmdGetMgoPurchasedItemRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_STAT:
+		err = HandleCmdGetMgoStatRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_TITLE_LIST:
+		err = HandleCmdGetMgoTitleListRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_TITLE_USR:
+		err = HandleCmdGetMgoTitleUsrRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_MGO_USER_DATA:
+		err = HandleCmdGetMgoUserDataRequest(ctx, msg, m)
+	case tppmessage.CMD_MGO_DLC_UPDATE:
+		err = HandleCmdMgoDlcUpdateRequest(ctx, msg, m)
+	case tppmessage.CMD_MGO_MISSION_RESULT:
+		err = HandleCmdMgoMissionResultRequest(ctx, msg, m)
+	case tppmessage.CMD_SET_MGO_CHARACTER_AND_LOADOUT2:
+		err = HandleCmdSetMgoCharacterAndLoadout2Request(ctx, msg, m)
+	case tppmessage.CMD_SET_MGO_CHARACTER2:
+		err = HandleCmdSetMgoCharacter2Request(ctx, msg, m)
+	case tppmessage.CMD_SET_MGO_MATCH_STAT:
+		err = HandleCmdSetMgoMatchStatRequest(ctx, msg, m)
+	case tppmessage.CMD_SET_MGO_STAT:
+		err = HandleCmdSetMgoStatRequest(ctx, msg, m)
+	case tppmessage.CMD_GET_NEXT_MAINTENANCE:
+		err = HandleCmdGetNextMaintenanceRequest(ctx, msg, m)
 	//case tppmessage.CMD_ADD_FOLLOW:
 	//case tppmessage.CMD_APPROVE_STEAM_SHOP:
 	//case tppmessage.CMD_CALC_COST_FOB_DEPLOY_REPLACE:

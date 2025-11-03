@@ -16,16 +16,18 @@ type CmdGetMgoTitleUsrRequest struct {
 	} `json:"target"`
 }
 
+type MgoTitleList struct {
+	Flag int `json:"flag"`
+	Gp   int `json:"gp"`
+	ID   int `json:"id"`
+}
+
 type CmdGetMgoTitleUsrResponse struct {
-	CryptoType string      `json:"crypto_type"`
-	Flowid     interface{} `json:"flowid"`
-	Msgid      string      `json:"msgid"`
-	Result     string      `json:"result"`
-	Rqid       int         `json:"rqid"`
-	TitleList  []struct {
-		Flag int `json:"flag"`
-		Gp   int `json:"gp"`
-		ID   int `json:"id"`
-	} `json:"title_list"`
-	Xuid interface{} `json:"xuid"`
+	CryptoType string         `json:"crypto_type"`
+	Flowid     interface{}    `json:"flowid"`
+	Msgid      string         `json:"msgid"`
+	Result     string         `json:"result"`
+	Rqid       int            `json:"rqid"`
+	TitleList  []MgoTitleList `json:"title_list"`
+	Xuid       interface{}    `json:"xuid"`
 }

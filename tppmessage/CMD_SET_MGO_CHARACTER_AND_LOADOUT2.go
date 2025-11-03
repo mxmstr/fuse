@@ -5,10 +5,10 @@ type CmdSetMgoCharacterAndLoadout2Request struct {
 	Rqid  int    `json:"rqid"`
 	// Character's structure is defined in an external JSON file (default_character.json)
 	// which is not available in the repository. Using interface{} to accommodate any valid JSON.
-	Character interface{} `json:"character"`
+	Character MGOCharacterData `json:"character"`
 	// Loadout's structure is defined in an external JSON file (default_loadout.json)
 	// which is not available in the repository. Using interface{} to accommodate any valid JSON.
-	Loadout interface{} `json:"loadout"`
+	Loadout MGOLoadoutData `json:"loadout"`
 }
 
 type CmdSetMgoCharacterAndLoadout2Response struct {
