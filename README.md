@@ -1,3 +1,7 @@
+Slightly modified for use with Nucleus Co-op.
+
+====
+
 fuse - MGSV:TPP master server
 ====
 
